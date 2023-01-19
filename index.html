@@ -1,5 +1,31 @@
 <html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    </head>
     <body>
-        <div>TEST</div>
+        <div class="px-4 py-5 my-5 text-center">
+            <h1 class="display-5 fw-bold">Mock payment checkout</h1>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button type="button" id="success" class="btn btn-success btn-lg px-4 gap-3">Success</button>
+                <button type="button" id="fail" class="btn btn-danger btn-lg px-4">Fail</button>
+                <button type="button" id="cancel" class="btn btn-outline-secondary btn-lg px-4">Cancel</button>
+              </div>
+        </div>
     </body>
+    <script type="text/javascript">
+        document.querySelector('#success').onclick = function () {
+            console.log("success");
+            parent.postMessage("success", "*");
+        };
+
+        document.querySelector('#fail').onclick = function () {
+            console.log("fail");
+            parent.postMessage("fail", "*");
+        };
+
+        document.querySelector('#cancel').onclick = function () {
+            console.log("cancel");
+            parent.postMessage("cancel", "*");
+        };
+    </script>
 </html>
