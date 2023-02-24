@@ -15,12 +15,20 @@
     <script type="text/javascript">
         document.querySelector('#success').onclick = function () {
             console.log("success");
-            parent.postMessage("success", "*");
+            let message = {
+                type: "payment",
+                success: true,
+            };
+            window.parent.postMessage(JSON.stringify(message), '*');
         };
 
         document.querySelector('#fail').onclick = function () {
             console.log("fail");
-            parent.postMessage("fail", "*");
+            let message = {
+                type: "payment",
+                success: false,
+            };
+            window.parent.postMessage(JSON.stringify(message), '*');
         };
 
         document.querySelector('#cancel').onclick = function () {
